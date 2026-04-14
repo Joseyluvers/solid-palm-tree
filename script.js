@@ -1,105 +1,84 @@
-const toggle = document.getElementById("toggle");
+const menuToggle = document.getElementById("toggle");
 const menu = document.getElementById("menu");
-const menuLinks = document.querySelectorAll("#menu a");
+const navLinks = Array.from(document.querySelectorAll("#menu a"));
+const revealItems = document.querySelectorAll(".reveal");
+const sections = Array.from(document.querySelectorAll("section[id]"));
 
-// Toggle menu on hamburger click
-toggle.addEventListener("click", () => {
-  menu.classList.toggle("active");
-});
-
-// Close menu when a link is clicked (mobile friendly)
-menuLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("active");
-  });
-});
-
-// Add smooth scroll behavior for better UX
-document.documentElement.style.scrollBehavior = "smooth";
-
-// Close menu when clicking outside
-document.addEventListener("click", (e) => {
-  if (!e.target.closest("header")) {
-    menu.classList.remove("active");
-  }
-});
-
-// Intersection Observer for fade-in animations on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
+const closeMenu = () => {
+  menu.classList.remove("is-open");
+  menuToggle.classList.remove("is-open");
+  menuToggle.setAttribute("aria-expanded", "false");
 };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animation = `fadeInUp 0.8s ease-out forwards`;
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+const openMenu = () => {
+  menu.classList.add("is-open");
+  menuToggle.classList.add("is-open");
+  menuToggle.setAttribute("aria-expanded", "true");
+};
 
-// Observe all sections for animation
-document.querySelectorAll(".section").forEach(section => {
-  observer.observe(section);
+menuToggle.addEventListener("click", () => {
+  const isOpen = menu.classList.contains("is-open");
+  if (isOpen) {
+    closeMenu();
+    return;
+  }
+
+  openMenu();
 });
 
-// Stagger card animations
-const cards = document.querySelectorAll(".card");
-cards.forEach((card, index) => {
-  card.style.opacity = "0";
-  card.style.animation = `fadeInUp 0.6s ease-out ${0.1 * (index + 1)}s forwards`;
-});
-
-// Stagger timeline box animations
-const timelineBoxes = document.querySelectorAll(".timeline .box");
-timelineBoxes.forEach((box, index) => {
-  box.style.opacity = "0";
-  box.style.animation = `slideInLeft 0.6s ease-out ${0.1 * (index + 1)}s forwards`;
-});
-
-// Stagger skill category animations
-const skillCategories = document.querySelectorAll(".skill-category");
-skillCategories.forEach((category, index) => {
-  category.style.opacity = "0";
-  category.style.animation = `fadeInUp 0.6s ease-out ${0.1 * (index + 1)}s forwards`;
-});
-
-// Add active state indicator to nav links on scroll
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (scrollY >= sectionTop - 200) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.style.opacity = "0.6";
-    if (link.getAttribute("href").slice(1) === current) {
-      link.style.opacity = "1";
-      link.style.textDecoration = "underline";
-    } else {
-      link.style.textDecoration = "none";
-    }
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    closeMenu();
   });
 });
 
-// Parallax effect on hero section
-window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    const scrollPosition = window.scrollY;
-    hero.style.backgroundPosition = `0 ${scrollPosition * 0.5}px`;
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) {
+    closeMenu();
   }
 });
 
-// Add smooth transitions for hover effects
-const interactiveElements = document.querySelectorAll(".card, .skill-tag, .project-link, .timeline .box");
-interactiveElements.forEach(element => {
-  element.style.transition = "all 0.4s cubic-bezier(0.23, 1, 0.320, 1)";
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMenu();
+  }
 });
+
+const setActiveLink = () => {
+  const currentSection = sections.findLast((section) => {
+    const offset = section.offsetTop - 180;
+    return window.scrollY >= offset;
+  });
+
+  const currentId = currentSection ? currentSection.id : "home";
+
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentId}`;
+    link.classList.toggle("is-active", isActive);
+  });
+};
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add("is-visible");
+      revealObserver.unobserve(entry.target);
+    });
+  },
+  {
+    threshold: 0.16,
+    rootMargin: "0px 0px -40px 0px",
+  }
+);
+
+revealItems.forEach((item, index) => {
+  item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+  revealObserver.observe(item);
+});
+
+window.addEventListener("scroll", setActiveLink, { passive: true });
+window.addEventListener("load", setActiveLink);

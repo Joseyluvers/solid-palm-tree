@@ -2,136 +2,312 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Joseph Ayinmode - Frontend Developer & Digital Entrepreneur">
-  <title>My Portfolio - Joseph Ayinmode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Joseph Ayinmode is a frontend developer and product-minded builder creating responsive digital experiences and scalable web platforms."
+  />
+  <title>Joseph Ayinmode | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="logo" href="#home">DevOluseye<span>.</span></a>
 
-<header>
-  <h1 class="logo">Oluseye</h1>
-  <nav>
-    <ul id="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <i class="fas fa-bars" id="toggle"></i>
-  </nav>
-</header>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button
+          id="toggle"
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
 
-<main>
-<section id="home" class="hero">
-  <h2>Hello, I'm <span>Ayinmode Joseph Seye</span></h2>
-  <p>Frontend Developer | Digital Entrepreneur | Frontend Engineer & Product Builder | React & Next.js | Building Scalable SaaS & Web Platforms | Monipoint BRM</p>
-  <div class="socials">
-    <a href="https://github.com/Joseyluvers?tab=repositories" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/ayinmode-joseph-seye/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://wa.me/+2348105033804" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <ul id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero section section--hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Fullstack Developer and product builder</p>
+          <h1>Fullstack Developer | AI Automation</h1>
+          <p class="hero-text">
+            I am Oluseye Joseph, As a full-stack developer and AI automation builder, my main goal is to help businesses run more smoothly, grow more quickly, and create powerful digital products.</p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="button button-primary">View Projects</a>
+            <a href="assets/CV.pdf" download class="button button-secondary">Download CV</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://github.com/Joseyluvers?tab=repositories" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ayinmode-joseph-seye/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/+2348105033804" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:josephseye3@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="hero-card hero-card-primary">
+            <p class="hero-card-label">Current focus</p>
+            <h2>Building web experiences that look sharp and feel dependable.</h2>
+            <ul class="hero-points">
+              <li>Responsive interfaces for desktop and mobile</li>
+              <li>React, Next.js, and modern frontend workflows</li>
+              <li>Product-minded delivery with business awareness</li>
+            </ul>
+          </div>
+
+          <div class="hero-stats">
+            <article class="stat-card">
+              <strong>3+</strong>
+              <span>live projects delivered</span>
+            </article>
+            <article class="stat-card">
+              <strong>4+</strong>
+              <span>years across service and client-facing roles</span>
+            </article>
+            <article class="stat-card">
+              <strong>100%</strong>
+              <span>mobile-conscious approach</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About</p>
+          <h2>Professional, reliable, and focused on results.</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <h3>What I bring</h3>
+            <p>
+              I focus on making modern web apps and smart automation systems that save time, cut down on manual work, and make things run more smoothly. I turn ideas into working, user-friendly-to-use solutions, like building scalable SaaS platforms and automating workflows with tools like Zapier, n8n, and Airtable.
+
+
+            </p>
+          </article>
+
+          <article class="about-card reveal">
+            <h3>How I work</h3>
+            <p>
+              My approach centers on clean structure, thoughtful design, responsive layouts,
+              and interfaces that communicate credibility from the first glance.
+            </p>
+          </article>
+
+          <article class="about-card reveal">
+            <h3>What I am aiming for</h3>
+            <p>
+              I make sure that every product is quick, responsive, and built for growth by bridging the gap between design and functionality. I have worked on both the front end and back end of websites.
+
+As a proud 3MTT Cohort 3 Fellow, I work hard to improve my skills in new technologies, especially AI-powered automation and systems that don't require code.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects that show range and practical execution.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <span class="project-tag">Landing Page</span>
+            <h3>Next.js Saas Landing Page</h3>
+            <p>
+              One package. No hidden scope traps.
+Perfect for startups and product teams that need a polished launch page without a six-week agency timeline.
+            </p>
+            <a href="https://landing-page-two-gules-94.vercel.app/" target="_blank" rel="noreferrer" class="project-link">
+              Visit project
+            </a>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Booking-Website</span>
+            <h3>Appointment Booking Website</h3>
+            <p>
+              A booking interface built to help users schedule appointments smoothly with a
+              clear and accessible user flow.
+            </p>
+            <a href="https://dev-oluseye-portfolio.vercel.app/" target="_blank" rel="noreferrer" class="project-link">
+              Visit project
+            </a>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Event</span>
+            <h3>Digital Invitation Card</h3>
+            <p>
+              A lightweight event invitation experience with a compact presentation and map
+              direction support for quick access.
+            </p>
+            <a href="https://joseyluvers.github.io/Digital-invitation-card/" target="_blank" rel="noreferrer" class="project-link">
+              Visit project
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Skills that support solid product delivery.</h2>
+        </div>
+
+        <div class="skills-layout">
+          <article class="skill-card reveal">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>Responsive Design</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3>Tools</h3>
+            <div class="skill-tags">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>VS Code</span>
+              <span>Figma</span>
+              <span>Tailwind CSS</span>
+              <span>Deployment</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3>Strengths</h3>
+            <div class="skill-tags">
+              <span>Problem Solving</span>
+              <span>Communication</span>
+              <span>Collaboration</span>
+              <span>Adaptability</span>
+              <span>Client Support</span>
+              <span>Product Thinking</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Experience</p>
+          <h2>Work history shaped by service, trust, and delivery.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span>Moniepoint</span>
+              <span>Current</span>
+            </div>
+            <h3>Business Relationship Manager</h3>
+            <p>
+              Supporting client relationships, problem resolution, and growth with a strong
+              understanding of communication, trust, and service delivery.
+            </p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span>Rosabon Financial Services</span>
+              <span>June 2025 to July 2025</span>
+            </div>
+            <h3>Sales Executive, Wealth Management</h3>
+            <p>
+              Worked on sales and client engagement, strengthening my ability to understand
+              user needs and communicate value clearly.
+            </p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span>Federal Teachers Scheme</span>
+              <span>2020 to 2021</span>
+            </div>
+            <h3>Teacher and Mentor</h3>
+            <p>
+              Taught and supported secondary school students, developing patience,
+              communication, and structured guidance skills.
+            </p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span>Techline.ng</span>
+              <span>Current</span>
+            </div>
+            <h3>Digital Personal Assistant</h3>
+            <p>
+              Assisted with digital tasks, coordination, and operational support while
+              maintaining a dependable and organized workflow.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-contact">
+        <div class="contact-card reveal">
+          <p class="eyebrow">Let us connect</p>
+          <h2>Need a frontend developer with both technical and people skills?</h2>
+          <p class="contact-text">
+            I am open to collaborations, freelance work, and opportunities where clean frontend
+            execution and product thinking matter.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:josephseye3@gmail.com">josephseye3@gmail.com</a>
+            <a href="tel:+2348105033804">+234 810 503 3804</a>
+            <a href="https://www.linkedin.com/in/ayinmode-joseph-seye/" target="_blank" rel="noreferrer">LinkedIn Profile</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Joseph Ayinmode. All rights reserved.</p>
+    </footer>
   </div>
-  <a href="assets/CV.pdf" download class="cv-button">
-    <i class="fas fa-download"></i> Download CV
-  </a>
-</section>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Portfolio Website</h3>
-      <p>Personal responsive portfolio website.</p>
-      <a href="https://joseyluvers.github.io/Portable-Portfolio-Cv/" class="project-link">Learn More</a>
-    </div>
-    <div class="card">
-      <h3>Booking System</h3>
-      <p>Appointment booking web app.</p>
-      <a href="https://joseyluvers.github.io/Booking-website/" class="project-link">Learn More</a>
-    </div>
-    <div class="card">
-      <h3>Digital Invitaion Card</h3>
-      <p>A digital invitation card for an event with a real time map direction using HTML and CSS it’s very limited in space and very easy to access.</p>
-      <a href="https://joseyluvers.github.io/Digital-invitation-card/" class="project-link">Learn More</a>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="section">
-  <h2>Skills</h2>
-  <div class="skills-container">
-    <div class="skill-category">
-      <h3>Frontend</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Next.js</span>
-        <span class="skill-tag">Responsive Design</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h3>Tools & Technologies</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">GitHub</span>
-        <span class="skill-tag">VS Code</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Tailwind CSS</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h3>Soft Skills</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Problem Solving</span>
-        <span class="skill-tag">Communication</span>
-        <span class="skill-tag">Team Collaboration</span>
-        <span class="skill-tag">Project Management</span>
-        <span class="skill-tag">Adaptability</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <h2>Work Experience</h2>
-  <div class="timeline">
-    <div class="box">
-      <h3>Bussiness Relationship Manager</h3>
-      <p>Moniepoint – Active</p>
-    </div>
-    <div class="box">
-      <h3>Sales Executive / Wealth Management</h3>
-      <p>Rosabon Financial Services – june – July 2025</p>
-    </div>
-    <div class="box">
-      <h3>Teaching and mentoring secondary school students.</h3>
-      <p>Federal Teachers Scheme (UBEC) – 2020 – 2021</p>
-    </div>
-    <div class="box">
-      <h3>Digital personal assistant.</h3>
-      <p>Techline.ng – Active</p>
-    </div>
-  
-  </div>
-   
-</section>
-
-<section id="contact" class="section">
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:josephseye3@gmail.com">josephseye3@gmail.com</a></p>
-  <p>Phone: <a href="tel:+2348105033804">+234 810 503 3804</a></p>
-</section>
-</main>
-
-<footer>
-  <p>&copy; 2026 Joseph. All Rights Reserved.</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
