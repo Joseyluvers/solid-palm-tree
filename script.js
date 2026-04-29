@@ -3,6 +3,9 @@ const menu = document.getElementById("menu");
 const navLinks = Array.from(document.querySelectorAll("#menu a"));
 const revealItems = document.querySelectorAll(".reveal");
 const sections = Array.from(document.querySelectorAll("section[id]"));
+const projectsToggle = document.getElementById("projects-toggle");
+const projectsPanel = document.getElementById("projects-panel");
+const projectsBox = document.querySelector(".projects-box");
 
 const closeMenu = () => {
   menu.classList.remove("is-open");
@@ -82,3 +85,25 @@ revealItems.forEach((item, index) => {
 
 window.addEventListener("scroll", setActiveLink, { passive: true });
 window.addEventListener("load", setActiveLink);
+
+if (projectsToggle && projectsPanel && projectsBox) {
+  projectsToggle.addEventListener("click", () => {
+    const isOpen = projectsToggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      projectsToggle.setAttribute("aria-expanded", "false");
+      projectsPanel.style.maxHeight = "0px";
+      projectsBox.classList.remove("is-open");
+      window.setTimeout(() => {
+        if (projectsToggle.getAttribute("aria-expanded") === "false") {
+          projectsPanel.hidden = true;
+        }
+      }, 350);
+      return;
+    }
+
+    projectsPanel.hidden = false;
+    projectsToggle.setAttribute("aria-expanded", "true");
+    projectsBox.classList.add("is-open");
+    projectsPanel.style.maxHeight = `${projectsPanel.scrollHeight}px`;
+  });
+}
