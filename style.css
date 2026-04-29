@@ -354,55 +354,6 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
-.experience-box {
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.experience-toggle {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  padding: 1.2rem 1.3rem;
-  display: grid;
-  gap: 0.2rem;
-  transition: background var(--transition);
-}
-
-.experience-toggle:hover {
-  background: rgba(15, 118, 110, 0.06);
-}
-
-.experience-toggle-title {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.experience-toggle-meta {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.experience-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 350ms ease;
-}
-
-.experience-panel .timeline {
-  padding: 0 1.3rem 1.3rem;
-}
-
-.experience-box.is-open .experience-toggle {
-  border-bottom: 1px solid var(--line);
-}
-
 .about-card h3,
 .project-card h3,
 .skill-card h3,
@@ -603,10 +554,6 @@ a {
   .contact-card { border-radius: var(--radius-md); }
 
   .projects-box {
-    border-radius: var(--radius-md);
-  }
-
-  .experience-box {
     border-radius: var(--radius-md);
   }
 
