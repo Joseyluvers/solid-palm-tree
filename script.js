@@ -6,6 +6,9 @@ const sections = Array.from(document.querySelectorAll("section[id]"));
 const projectsToggle = document.getElementById("projects-toggle");
 const projectsPanel = document.getElementById("projects-panel");
 const projectsBox = document.querySelector(".projects-box");
+const experienceToggle = document.getElementById("experience-toggle");
+const experiencePanel = document.getElementById("experience-panel");
+const experienceBox = document.querySelector(".experience-box");
 
 const closeMenu = () => {
   menu.classList.remove("is-open");
@@ -105,5 +108,27 @@ if (projectsToggle && projectsPanel && projectsBox) {
     projectsToggle.setAttribute("aria-expanded", "true");
     projectsBox.classList.add("is-open");
     projectsPanel.style.maxHeight = `${projectsPanel.scrollHeight}px`;
+  });
+}
+
+if (experienceToggle && experiencePanel && experienceBox) {
+  experienceToggle.addEventListener("click", () => {
+    const isOpen = experienceToggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      experienceToggle.setAttribute("aria-expanded", "false");
+      experiencePanel.style.maxHeight = "0px";
+      experienceBox.classList.remove("is-open");
+      window.setTimeout(() => {
+        if (experienceToggle.getAttribute("aria-expanded") === "false") {
+          experiencePanel.hidden = true;
+        }
+      }, 350);
+      return;
+    }
+
+    experiencePanel.hidden = false;
+    experienceToggle.setAttribute("aria-expanded", "true");
+    experienceBox.classList.add("is-open");
+    experiencePanel.style.maxHeight = `${experiencePanel.scrollHeight}px`;
   });
 }
