@@ -164,7 +164,7 @@ a {
   margin-bottom: 0.9rem;
   color: var(--brand);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 100;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -180,7 +180,7 @@ h1 {
   max-width: 13ch;
   margin-bottom: 1.1rem;
   font-size: clamp(2.35rem, 7vw, 5.25rem);
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .hero-text {
@@ -255,18 +255,22 @@ h1 {
 }
 
 .profile-avatar {
-  display: grid;
-  place-items: center;
-  width: 4.25rem;
-  height: 4.25rem;
-  flex: 0 0 auto;
-  color: #fff;
+  overflow: hidden;
+  width: clamp(3.7rem, 11vw, 4.25rem);
+  aspect-ratio: 1;
+  flex: 0 0 clamp(3.7rem, 11vw, 4.25rem);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent),
     var(--brand-dark);
   border-radius: calc(var(--radius) + 6px);
-  font-size: 1.2rem;
-  font-weight: 800;
+}
+
+.profile-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .profile-name {
@@ -657,11 +661,6 @@ h1 {
   }
 
   .profile-top {
-    align-items: flex-start;
-  }
-
-  .profile-avatar {
-    width: 3.7rem;
-    height: 3.7rem;
+    align-items: center;
   }
 }
