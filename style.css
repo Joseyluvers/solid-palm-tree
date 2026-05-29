@@ -1,18 +1,21 @@
 :root {
-  --bg: #f7f8fb;
-  --ink: #111827;
-  --muted: #5b6472;
-  --soft: #eef1f5;
-  --line: #d9dee8;
+  --bg: #fbfcfd;
+  --ink: #0f1724;
+  --muted: #586074;
+  --soft: #f3f7fb;
+  --line: #e2e8f0;
   --surface: #ffffff;
-  --surface-2: #f2f6f4;
-  --brand: #0f766e;
-  --brand-dark: #0b4f4a;
+  --surface-2: #f6fbff;
+  --brand: #2563eb;
+  --brand-dark: #1e3a8a;
   --gold: #c0842f;
-  --radius: 8px;
-  --container: 1120px;
-  --shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
-  --transition: 180ms ease;
+  --radius: 10px;
+  --container: 1100px;
+  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 28px 60px rgba(15, 23, 42, 0.06);
+  --transition-fast: 150ms cubic-bezier(.2,.9,.2,1);
+  --transition-medium: 260ms cubic-bezier(.2,.9,.2,1);
 }
 
 * {
@@ -719,4 +722,112 @@ p,
   .profile-top {
     align-items: center;
   }
+}
+
+/* --- Vanilla CSS UI refinements (overrides & responsive helpers) --- */
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Smooth but light transitions for interactive elements */
+:root {
+  --ui-ease: var(--transition-fast, 160ms);
+}
+
+button, a.button, .project-card, .skill-card, .profile-card {
+  transition: transform var(--ui-ease), box-shadow var(--ui-ease), opacity var(--ui-ease);
+  will-change: transform;
+}
+
+/* Subtle hover lift and shadow for cards */
+.project-card:hover, .skill-card:hover, .profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Lighter header shadow for cleaner UI */
+.site-header { box-shadow: var(--shadow-sm); }
+
+/* Buttons: crisper, faster, consistent */
+.button { border-radius: 10px; padding: 0.65rem 0.9rem; }
+.button-primary { box-shadow: 0 8px 20px rgba(37,99,235,0.08); }
+.button-secondary { border-color: var(--line); }
+
+/* Focus accessibility */
+:focus { outline: none; }
+:focus-visible { outline: 3px solid rgba(37,99,235,0.12); outline-offset: 3px; }
+
+/* Paragraph and heading balance */
+.section-heading h2 { font-weight: 700; margin-top: 0.1rem; }
+p, .hero-text, .about-content p, .project-card p, .skill-card p { font-size: clamp(0.95rem, 1.05vw, 1rem); line-height: 1.6; }
+
+/* Grid responsiveness tweaks */
+@media (max-width: 980px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .project-grid, .skills-grid { grid-template-columns: 1fr; }
+  .section { padding: 2.4rem 0; }
+  .section-heading h2 { font-size: 1.08rem; }
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* Ensure images scale nicely */
+img { display: block; max-width: 100%; height: auto; }
+
+/* Small helper to keep content centered on small screens */
+.site-header, .section, .site-footer { padding-inline: 1rem; }
+
+/* End of overrides */
+
+/* --- Desktop-only layout tweaks (min-width: 981px) --- */
+@media (min-width: 981px) {
+  /* Wider content flow */
+  .site-header, .section, .site-footer {
+    width: min(1200px, 92%);
+    margin-inline: auto;
+  }
+
+  /* More breathing room */
+  .section { padding: 6.5rem 0; }
+
+  /* Hero: give profile more prominence and balance */
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    min-height: calc(100vh - 5.6rem);
+    padding-top: 5.2rem;
+  }
+
+  h1 { font-size: clamp(2.8rem, 4.6vw, 5.6rem); }
+
+  /* Section headings larger and tighter on wide viewports */
+  .section-heading h2 { font-size: clamp(1.6rem, 2.8vw, 2.8rem); max-width: 48ch; }
+
+  /* Projects: 4-column grid on desktop for denser preview */
+  .project-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+
+  /* Skills: keep 4 columns with slightly larger cards */
+  .skills-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+
+  /* Increase card padding and reduce cramped text */
+  .project-card, .skill-card { padding: 1.5rem; }
+
+  /* Profile card slightly bigger */
+  .profile-card { padding: 1.6rem; }
+
+  /* Slightly larger meta and labels for readability */
+  .project-meta span, .profile-stack span { font-size: 0.82rem; }
+
+  /* Make nav items more spacious */
+  #menu a { padding: 0 1rem; font-size: 0.95rem; }
+
+  /* Keep pen mark subtle but aligned */
+  .section-heading .eyebrow { font-size: 0.95rem; transform: translateY(-1px); }
 }
